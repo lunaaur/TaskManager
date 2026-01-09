@@ -12,6 +12,9 @@
     "android:dev": "react-native run-android --appId=com.taskmanager.dev --mode=developmentDebug",
     "android:prod": "react-native run-android --mode=productionDebug",
     "android:prod-release": "react-native run-android --mode=productionRelease",
+    "ios:prod": "react-native run-ios --scheme='TaskManager'",
+    "ios:dev": "react-native run-ios --scheme='TaskManager-Dev'",
+    "ios:staging": "react-native run-ios --scheme='TaskManager-Staging'",
     "test": "jest"
   },
   "dependencies": {
