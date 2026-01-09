@@ -7,6 +7,11 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
+    "apk": "cd android && ./gradlew clean && ./gradlew assembleDevelopmentRelease",
+    "apk:prod": "cd android && ./gradlew clean && ./gradlew assembleProductionRelease",
+    "android:dev": "react-native run-android --appId=com.taskmanager.dev --mode=developmentDebug",
+    "android:prod": "react-native run-android --mode=productionDebug",
+    "android:prod-release": "react-native run-android --mode=productionRelease",
     "test": "jest"
   },
   "dependencies": {
