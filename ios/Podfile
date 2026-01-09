@@ -23,6 +23,14 @@ target 'TaskManager' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  target 'TaskManager-Dev' do
+    inherit! :complete
+  end
+
+  target 'TaskManager-Staging' do
+    inherit! :complete
+  end
+  
   post_install do |installer|
     react_native_post_install(
       installer,
@@ -32,3 +40,4 @@ target 'TaskManager' do
     )
   end
 end
+

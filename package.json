@@ -7,12 +7,21 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
+    "apk": "cd android && ./gradlew clean && ./gradlew assembleDevelopmentRelease",
+    "apk:prod": "cd android && ./gradlew clean && ./gradlew assembleProductionRelease",
+    "android:dev": "react-native run-android --appId=com.taskmanager.dev --mode=developmentDebug",
+    "android:prod": "react-native run-android --mode=productionDebug",
+    "android:prod-release": "react-native run-android --mode=productionRelease",
+    "ios:prod": "react-native run-ios --scheme='TaskManager'",
+    "ios:dev": "react-native run-ios --scheme='TaskManager-Dev'",
+    "ios:staging": "react-native run-ios --scheme='TaskManager-Staging'",
     "test": "jest"
   },
   "dependencies": {
+    "@react-native/new-app-screen": "0.83.1",
     "react": "19.2.0",
     "react-native": "0.83.1",
-    "@react-native/new-app-screen": "0.83.1",
+    "react-native-config": "^1.6.1",
     "react-native-safe-area-context": "^5.5.2"
   },
   "devDependencies": {
