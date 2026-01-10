@@ -1,0 +1,1 @@
+export { Main as MainScreen } from './main';
