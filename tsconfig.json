@@ -1,12 +1,13 @@
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
-    "types": ["jest"],
+    "types": ["jest", "@types/styled-components-react-native"],
     "baseUrl": ".", 
     "paths": {
       "@navigation/*": ["./src/navigation/*"],
       "@screens/*": ["./src/screens/*"],
       "@navigation": ["./src/navigation"],
+      "@elements": ["./src/shared/ui/elements/index"],
 
   }
   },
