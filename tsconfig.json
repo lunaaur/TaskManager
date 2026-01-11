@@ -6,7 +6,7 @@
     "paths": {
       "@navigation/*": ["./src/navigation/*"],
       "@screens/*": ["./src/screens/*"],
-      "@navigation": ["./src/navigation"]
+      "@navigation": ["./src/navigation"],
 
   }
   },
