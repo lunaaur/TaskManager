@@ -35,3 +35,8 @@ right: 10px;
 bottom: 13px;
 z-index: 10;
 `
+
+export const ErrorText = styled.Text`
+color: red;
+font-size: 14px;
+`
