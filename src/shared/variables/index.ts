@@ -1,4 +1,6 @@
-const indentDefault = 16;
+import { Platform } from "react-native";
+
+export const indentDefault = 16;
 
 export const clrWhite = '#FFFFFF'; 
 export const clrBlack = '#000000';
@@ -25,7 +27,7 @@ export const clrRed = '#E73E3E';
 export const clrBlue = '#0085FF';
 export const clrBlue2 = '#CFE8FF';
 
-export const clrGreen = '#6CAA4F';
+export const clrGreen = '#BEDD78';
 
 export const yellow1 = '#FFC700';
 export const yellow2 = '#AF8D14';
@@ -38,3 +40,11 @@ export const indentLeft = indentDefault;
 
 export const indentHorizontal = indentDefault;
 export const indentVertical = indentDefault;
+
+export const devicePlatform = Platform.OS;
+
+export enum SizeEnum {
+  SMALL = 'small',
+  MEDIUM = 'medium',
+  LARGE = 'large',
+}

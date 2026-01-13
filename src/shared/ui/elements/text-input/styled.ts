@@ -33,5 +33,5 @@ export const IconContainer = styled.TouchableOpacity`
 position: absolute;
 right: 10px;
 bottom: 13px;
-z-index: 10px;
+z-index: 10;
 `
