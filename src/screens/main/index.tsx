@@ -1,11 +1,9 @@
 import { Login } from 'src/features/login/components/login';
 import { Wrapper } from './styled';
+import { useAppSelector } from 'src/store';
 
 export const Main = () => {
-  return (
-    <Wrapper>
-        {/**  для логина отображать лого и форму*/}
-      <Login />
-    </Wrapper>
-  );
+  const user = useAppSelector(store => store.user);
+
+  return <Wrapper>{user.name !== null ? <></> : <Login />}</Wrapper>;
 };

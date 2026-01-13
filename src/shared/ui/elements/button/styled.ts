@@ -7,6 +7,7 @@ type ButtonTextProps = {
 
 type ButtonProps = {
   size: SizeEnum;
+  buttonColor: string;
 };
 
 export const Button = styled.TouchableOpacity<ButtonProps>`
@@ -23,7 +24,7 @@ export const Button = styled.TouchableOpacity<ButtonProps>`
     }
   }};
   height: 40px;
-  background-color: ${clrGreen};
+  background-color: ${(props: ButtonProps) => props.buttonColor ? props.buttonColor : clrGreen};
   border-radius: 25px;
 `;
 
