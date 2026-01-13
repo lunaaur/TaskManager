@@ -61,7 +61,7 @@ export const LoginForm = () => {
             <Zord marginZord={[30, 0, 0, 0]}>
               <TextInput
                 text={formik.values.name}
-                placeholder="Имя пользователя"
+                placeholder="Имя пользователя*"
                 errorText={formik.errors.name ? formik.errors.name : null}
                 onChangeText={formik.handleChange('name')}
               />
@@ -69,7 +69,7 @@ export const LoginForm = () => {
             <Zord marginZord={[20, 0, 0, 0]}>
               <TextInput
                 text={formik.values.password}
-                placeholder="Пароль"
+                placeholder="Пароль*"
                 secureTextEntry={isHiddenPassword}
                 onIconPress={() => setIsHiddenPassword(!isHiddenPassword)}
                 onChangeText={formik.handleChange('password')}
