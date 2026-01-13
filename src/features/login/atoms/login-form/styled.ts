@@ -9,7 +9,7 @@ export const Wrapper = styled.View`
 export const Container = styled.View`
   width: 80%;
   background-color: #f8f8f8;
-  height: 280px;
+  max-height: 90%;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -23,6 +23,7 @@ export const ButtonBlock = styled.View`
   width: 100%;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 25px;
 `;
 
 export const TextBlock = styled.View`
