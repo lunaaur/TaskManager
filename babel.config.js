@@ -10,6 +10,7 @@ module.exports = {
           '@screens/*': './src/screens/*',
           '@navigation/*': './src/navigation/*',
           "@navigation": './src/navigation',
+          "@elements": './src/shared/ui/elements/index',
          }
         },
     ]
