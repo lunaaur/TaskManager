@@ -1,9 +1,21 @@
 import { Login } from 'src/features/login/components/login';
-import { Wrapper } from './styled';
-import { useAppSelector } from 'src/store';
+import { LoaderContainer, Wrapper } from './styled';
+import { useGetUserQuery } from 'src/store/api/baseApi';
+import { ActivityIndicator } from 'react-native';
+import { clrGreen } from 'src/shared/variables';
 
 export const Main = () => {
-  const user = useAppSelector(store => store.user);
+  const { data, isLoading } = useGetUserQuery();
 
-  return <Wrapper>{user.name !== null ? <></> : <Login />}</Wrapper>;
+  if (isLoading) {
+    return (
+    <Wrapper>
+      <LoaderContainer>
+      <ActivityIndicator size={'large'} color={clrGreen}/>
+      </LoaderContainer>
+    </Wrapper>
+    )
+  }
+
+  return <Wrapper>{data && data.user.name ?  <></> : <Login />}</Wrapper>;
 };

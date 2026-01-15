@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IUserState } from 'src/features/login/types/types';
 
 const initialState: IUserState = {
+  id: null,
   name: null,
 };
 
@@ -10,7 +11,8 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     saveUserData: (state, action) => {
-      state.name = action.payload.name;
+      state.id = action.payload.user.id;
+      state.name = action.payload.user.name;
     },
   },
 });
