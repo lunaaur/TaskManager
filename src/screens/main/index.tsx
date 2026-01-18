@@ -17,5 +17,5 @@ export const Main = () => {
     )
   }
 
-  return <Wrapper>{data && data.user.name ?  <></> : <Login />}</Wrapper>;
+  return <Wrapper>{data && data.user.name ?  <></>: <Login />}</Wrapper>;
 };

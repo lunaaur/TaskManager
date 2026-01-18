@@ -37,17 +37,24 @@ export const baseApi = createApi({
       query: () => 'api/users',
     }),
     registerUser: builder.mutation<IUserApiResponse, IUserApiBody>({
-      query: user => ({
+      query: userBody => ({
         url: 'api/users/register',
         method: 'POST',
-        body: user,
+        body: userBody,
       }),
       transformErrorResponse: (response: FetchBaseQueryError) => {
         return handleUserRegisterError(response);
       },
     }),
+    loginUser: builder.mutation<IUserApiResponse, IUserApiBody>({
+      query: userBody => ({
+        url: 'api/users/login',
+        method: 'POST',
+        body: userBody,
+      }),
+    }),
   }),
 });
 
-export const { useGetUsersQuery, useRegisterUserMutation, useGetUserQuery } =
+export const { useGetUsersQuery, useRegisterUserMutation, useGetUserQuery, useLoginUserMutation } =
   baseApi;
