@@ -1,45 +1,42 @@
 import { Button, TextInput, Zord } from '@elements';
 import {
+  BackIconBlock,
   ButtonBlock,
   Container,
   FormText,
   InputBlock,
+  SignInText,
+  SignInTextContainer,
   TextBlock,
+  TextBlockContainer,
   Wrapper,
 } from './styled';
 import { useState } from 'react';
-import { NotVisibleIcon, VisibleIcon } from 'src/shared/ui/icons';
-import { Alert, KeyboardAvoidingView } from 'react-native';
+import { BackIcon, NotVisibleIcon, VisibleIcon } from 'src/shared/ui/icons';
+import { KeyboardAvoidingView } from 'react-native';
 import { devicePlatform, SizeEnum } from 'src/shared/variables';
-import { IUserApiBody } from 'src/types/store';
-import { useRegisterUserMutation } from 'src/store/api/baseApi';
-import { handleCreateUserToken } from '../../helpers';
-import { useDispatch } from 'react-redux';
-import { saveUserData } from 'src/store/slices/user/user-slice';
 import { useFormik } from 'formik';
 import { validationUserRegisterSchema } from '../../constants';
 
-export const LoginForm = () => {
+type LoginFormProps = {
+  handleUserAuthentication: (name: string, password: string) => void;
+  isSignUpScreen: boolean;
+  formHeader: string;
+  handleChangeForm: () => void;
+  isLoading: boolean;
+};
+
+export const LoginForm = ({
+  handleUserAuthentication,
+  isSignUpScreen,
+  formHeader,
+  handleChangeForm,
+  isLoading,
+}: LoginFormProps) => {
   const [isHiddenPassword, setIsHiddenPassword] = useState<boolean>(true);
 
-  const [registerUser, { isLoading }] = useRegisterUserMutation();
-  const dispatch = useDispatch();
-
   const onSubmit = async () => {
-    const userData: IUserApiBody = {
-      name: formik.values.name,
-      password: formik.values.password,
-    };
-    try {
-      const { token, user } = await registerUser(userData).unwrap();
-      if (token) {
-        await handleCreateUserToken(token);
-        dispatch(saveUserData({ name: user.name }));
-      }
-    } catch (error: any) {
-      Alert.alert('Ошибка', error.message);
-      console.log(error, 'error registerUser');
-    }
+    handleUserAuthentication(formik.values.name, formik.values.password);
   };
 
   const formik = useFormik({
@@ -54,8 +51,15 @@ export const LoginForm = () => {
     >
       <Wrapper>
         <Container>
+          {!isSignUpScreen && (
+            <BackIconBlock onPress={handleChangeForm}>
+              <BackIcon />
+            </BackIconBlock>
+          )}
           <TextBlock>
-            <FormText>Авторизация</FormText>
+            <TextBlockContainer>
+              <FormText>{formHeader}</FormText>
+            </TextBlockContainer>
           </TextBlock>
           <InputBlock>
             <Zord marginZord={[30, 0, 0, 0]}>
@@ -80,6 +84,11 @@ export const LoginForm = () => {
               />
             </Zord>
           </InputBlock>
+          {isSignUpScreen && (
+            <SignInTextContainer onPress={handleChangeForm}>
+              <SignInText>Вход</SignInText>
+            </SignInTextContainer>
+          )}
           <ButtonBlock>
             <Button
               buttonText={isLoading ? 'Загрузка...' : 'Подтвердить'}
