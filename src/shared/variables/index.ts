@@ -28,6 +28,8 @@ export const clrBlue = '#0085FF';
 export const clrBlue2 = '#CFE8FF';
 
 export const clrGreen = '#BEDD78';
+export const clrGreen2 = '#93BB3A';
+
 
 export const yellow1 = '#FFC700';
 export const yellow2 = '#AF8D14';
