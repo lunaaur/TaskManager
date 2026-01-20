@@ -4,7 +4,7 @@ import Svg, { Path, G } from 'react-native-svg';
 
 export const NotesIcon = ({ fill }: { fill: string }) => {
   return (
-    <View style={{ width: 30, height: 30 }}>
+    <View style={{ width: 25, height: 25 }}>
       <Svg width="100%" height="100%" viewBox="0 0 511.999 511.999">
         <G fill={fill}>
           <G>

@@ -15,7 +15,7 @@ export const TabBarContainer = styled.View<TabBarContainerProps>`
   flex-direction: row;
   display: flex;
   justify-content: space-evenly;
-  padding: 10px 0 ${(props: TabBarContainerProps) => props.indentBottom + 10}px
+  padding: 10px 0 ${(props: TabBarContainerProps) => props.indentBottom + 5}px
     0;
   shadow-color: rgba(0, 0, 0, ${Platform.OS === 'android' ? 0.5 : 0.08});
   shadow-offset: 0px 4px;
@@ -40,6 +40,6 @@ export const IconWrapper = styled.View`
 export const TabBarText = styled.Text<TabBarTextProps>`
   color: ${(props: TabBarTextProps) =>
     props.isFocusedButton ? clrGreen2 : 'black'};
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600px;
 `;
