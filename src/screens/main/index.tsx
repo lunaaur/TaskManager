@@ -6,7 +6,6 @@ import { clrGreen } from 'src/shared/variables';
 
 export const Main = () => {
   const { data, isLoading } = useGetUserQuery();
-
   if (isLoading) {
     return (
     <Wrapper>
