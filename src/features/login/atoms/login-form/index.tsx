@@ -12,11 +12,12 @@ import {
   Wrapper,
 } from './styled';
 import { useState } from 'react';
-import { BackIcon, NotVisibleIcon, VisibleIcon } from 'src/shared/ui/icons';
+
 import { KeyboardAvoidingView } from 'react-native';
-import { devicePlatform, SizeEnum } from 'src/shared/variables';
 import { useFormik } from 'formik';
 import { validationUserRegisterSchema } from '../../constants';
+import { devicePlatform, SizeEnum } from '@variables';
+import { BackIcon, NotVisibleIcon, VisibleIcon } from '@icons';
 
 type LoginFormProps = {
   handleUserAuthentication: (name: string, password: string) => void;

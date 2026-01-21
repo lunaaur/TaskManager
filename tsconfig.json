@@ -2,15 +2,14 @@
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
     "types": ["jest", "@types/styled-components-react-native"],
-    "baseUrl": ".", 
+    "baseUrl": ".",
     "paths": {
       "@navigation/*": ["./src/navigation/*"],
       "@screens/*": ["./src/screens/*"],
       "@navigation": ["./src/navigation"],
       "@elements": ["./src/shared/ui/elements/index"],
-
+      "@icons": ["./src/shared/ui/icons/index"],
+      "@variables": ["./src/shared/variables/index"],
   }
-  },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"],
+}
 }

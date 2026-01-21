@@ -2,7 +2,8 @@ import { Login } from 'src/features/login/components/login';
 import { LoaderContainer, Wrapper } from './styled';
 import { useGetUserQuery } from 'src/store/api/baseApi';
 import { ActivityIndicator } from 'react-native';
-import { clrGreen } from 'src/shared/variables';
+import { clrGreen } from '@variables';
+
 
 export const Main = () => {
   const { data, isLoading } = useGetUserQuery();

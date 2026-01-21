@@ -1,6 +1,7 @@
 import { TextProps } from "react-native";
 import { Button, ButtonContent, ButtonText } from "./styled"
-import { SizeEnum } from "src/shared/variables";
+import { SizeEnum } from "@variables";
+
 
 type ButtonElementProps = {
     buttonText: string;
