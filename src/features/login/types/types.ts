@@ -1,6 +1,7 @@
 export interface IUserState {
   id: number | null;
   name: string | null;
+  isAuthenticated: boolean;
 }
 
 export interface IUserInfoState {

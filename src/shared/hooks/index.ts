@@ -1,0 +1,1 @@
+export { useAppResolve } from './use-app-resolve';
