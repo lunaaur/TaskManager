@@ -27,7 +27,7 @@ export const baseApi = createApi({
        async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          dispatch(saveUserData(data));
+          dispatch(saveUserData(data.user));
         } catch (error) {
           console.error('Failed to get user:', error);
         }
