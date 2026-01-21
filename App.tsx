@@ -23,7 +23,7 @@ function App() {
 
 function AppContent() {
   const { initialRouteName, isLoading } = useAppResolve();
-  console.log(initialRouteName, 'initialRouteName')
+
   const renderRoute = (route: IStackScreen) => {
     return <Stack.Screen key={route.name} {...route} />;
   };
