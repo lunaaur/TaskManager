@@ -1,5 +1,6 @@
+import { clrGreen, SizeEnum } from '@variables';
 import styled from 'styled-components/native';
-import { clrGreen, SizeEnum } from 'src/shared/variables';
+
 
 type ButtonTextProps = {
   textSize: SizeEnum;

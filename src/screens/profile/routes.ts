@@ -3,8 +3,9 @@
 
 import { IStackScreen } from '@navigation/types/navigation-types';
 import { ProfileScreen } from '..';
-import { ProfileIcon } from 'src/shared/ui/icons';
-import { clrGreen2 } from 'src/shared/variables';
+
+import { ProfileIcon } from '@icons';
+import { clrGreen2 } from '@variables';
 
 
 export const ProfileRoutes: IStackScreen[] = [

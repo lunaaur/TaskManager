@@ -1,4 +1,5 @@
-import { clrBlue } from 'src/shared/variables';
+
+import { clrBlue } from '@variables';
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.View`

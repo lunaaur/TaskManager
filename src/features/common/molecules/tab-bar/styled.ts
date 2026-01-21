@@ -1,5 +1,5 @@
+import { clrGreen2 } from '@variables';
 import { Platform } from 'react-native';
-import { clrGreen2 } from 'src/shared/variables';
 import styled from 'styled-components/native';
 
 type TabBarTextProps = {
