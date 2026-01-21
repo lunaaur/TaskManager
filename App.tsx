@@ -7,6 +7,8 @@ import { store } from 'src/store';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TabBar } from 'src/features/common/molecules/tab-bar';
 import { useMemo } from 'react';
+import { useAppResolve } from 'src/shared/hooks';
+import { Loader } from 'src/features/common/molecules/loader';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,14 +22,20 @@ function App() {
 }
 
 function AppContent() {
+  const { initialRouteName, isLoading } = useAppResolve();
+  console.log(initialRouteName, 'initialRouteName')
   const renderRoute = (route: IStackScreen) => {
     return <Stack.Screen key={route.name} {...route} />;
   };
 
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
-    <NavigationContainer>
+    <NavigationContainer key={initialRouteName}>
       <Stack.Navigator
-        initialRouteName="tabs"
+        initialRouteName={initialRouteName}
         screenOptions={{ headerShown: false }}
       >
         {commonRoutes.map(renderRoute)}
