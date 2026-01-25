@@ -4,11 +4,12 @@ import { NotCompletedStatus, Text, Zord } from '@atoms';
 import { useState } from 'react';
 
 type SingleTaskProps = {
-  task: ITaskState;
+  taskName: string;
   handlePress: () => Promise<void>;
+  isCompleted: boolean;
 };
 
-export const SingleTask = ({ task, handlePress }: SingleTaskProps) => {
+export const SingleTask = ({ taskName, handlePress, isCompleted }: SingleTaskProps) => {
   const [isStatusPressed, setIsStatusPressed] = useState<boolean>(false);
 
   const handleStatusPress = async () => {
@@ -26,9 +27,9 @@ export const SingleTask = ({ task, handlePress }: SingleTaskProps) => {
   return (
     <TaskContainer>
       <TaskBlock>
-        {!task.completed && <NotCompletedStatus handlePress={handleStatusPress} isStatusPressed={isStatusPressed}/>}
+        {!isCompleted && <NotCompletedStatus handlePress={handleStatusPress} isStatusPressed={isStatusPressed}/>}
         <Zord marginZord={[0, 0, 0, 20]}>
-          <Text text={task.name} />
+          <Text text={taskName} />
         </Zord>
       </TaskBlock>
     </TaskContainer>

@@ -20,7 +20,8 @@ export const TasksList = () => {
   const renderItem = ({ item }: { item: ITaskState }) => {
     return (
       <SingleTask
-        task={item}
+        taskName={item.name}
+        isCompleted={item.completed}
         handlePress={() => handleCompleteTask({ item })}
       />
     );
