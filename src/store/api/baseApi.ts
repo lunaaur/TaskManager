@@ -2,10 +2,10 @@ import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Config from 'react-native-config';
 import { IUserInfoState, IUserState } from 'src/features/login/types/types';
-import { IUserApiBody, IUserApiResponse } from 'src/types/store';
 import { handleUserRegisterError } from '../helpers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { saveUserData, clearUserData } from '../slices/user/user-slice';
+import { IUserApiBody, IUserApiResponse } from 'src/types/user';
 
 export const baseApi = createApi({
   reducerPath: 'baseApi',
