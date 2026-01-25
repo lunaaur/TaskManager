@@ -7,9 +7,10 @@
       "@navigation/*": ["./src/navigation/*"],
       "@screens/*": ["./src/screens/*"],
       "@navigation": ["./src/navigation"],
-      "@elements": ["./src/shared/ui/elements/index"],
+      "@atoms": ["src/shared/ui/atoms/index"],
       "@icons": ["./src/shared/ui/icons/index"],
       "@variables": ["./src/shared/variables/index"],
+      "@elements": ["./src/shared/ui/elements/index"],
   }
 }
 }
