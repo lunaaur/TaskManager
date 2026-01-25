@@ -1,6 +1,6 @@
 
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { userReducer } from "./slices";
+import { userReducer, tasksReducer } from "./slices";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { RootState } from "src/types/store";
 import { baseApi } from "./api/baseApi";
@@ -8,6 +8,7 @@ import { tasksApi } from "./api/tasksApi";
 
 const rootReducer = combineReducers({
     user: userReducer,
+    tasksData: tasksReducer,
     [baseApi.reducerPath]: baseApi.reducer,
     [tasksApi.reducerPath]: tasksApi.reducer,
   });
