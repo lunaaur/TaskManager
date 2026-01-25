@@ -3,6 +3,7 @@ import { TextSizeEnum, TextTypeEnum } from 'src/shared/ui/atoms/text';
 import { Container } from './styled';
 import { Zord } from '@atoms';
 import { Header } from '@elements';
+import { TasksList } from '../elements/tasks-list';
 
 export const TodayTasks = () => {
   return (
@@ -13,6 +14,9 @@ export const TodayTasks = () => {
           type={TextTypeEnum.BOLD}
           size={TextSizeEnum.LARGE}
         />
+        <>
+        <TasksList />
+        </>
       </Zord>
     </Container>
   );
