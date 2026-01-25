@@ -1,28 +1,10 @@
 import { IUserState } from 'src/features/login/types/types';
+import { ITaskState } from './task';
 
 export interface RootState {
   user: IUserState;
+  tasksData: {
+    count: number;
+    tasks: ITaskState[];
+  }
 }
-export interface IUserApiResponse {
-  user: {
-    id: number;
-    name: string;
-    created_at: Date;
-  };
-  token: string;
-  error?: {
-    message?: string;
-  };
-}
-
-export interface IUserApiBody {
-  name: string;
-  password: string;
-}
-
-export type RegisterUserErrorResponse = {
-  data: {
-    error: string;
-  };
-  status: number;
-};
