@@ -1,4 +1,4 @@
-import { Button, TextInput, Zord } from '@elements';
+import { Button, TextInput, Zord } from 'src/shared/ui/atoms';
 import {
   BackIconBlock,
   ButtonBlock,
