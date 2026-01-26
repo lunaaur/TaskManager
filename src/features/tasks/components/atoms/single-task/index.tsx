@@ -7,9 +7,10 @@ type SingleTaskProps = {
   taskName: string;
   handlePress: () => Promise<void>;
   isCompleted: boolean;
+  creationDate: Date;
 };
 
-export const SingleTask = ({ taskName, handlePress, isCompleted }: SingleTaskProps) => {
+export const SingleTask = ({ taskName, handlePress, isCompleted, creationDate }: SingleTaskProps) => {
   const [isStatusPressed, setIsStatusPressed] = useState<boolean>(false);
 
   const handleStatusPress = async () => {

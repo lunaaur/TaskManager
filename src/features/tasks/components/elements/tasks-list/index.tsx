@@ -3,6 +3,7 @@ import { SingleTask } from '../../atoms/single-task';
 import { ITaskState } from 'src/types/task';
 import { List } from './styled';
 import { LineSeparator } from '@atoms';
+import { View } from 'react-native';
 
 export const TasksList = () => {
   const { data } = useGetTasksQuery();
@@ -22,17 +23,18 @@ export const TasksList = () => {
       <SingleTask
         taskName={item.name}
         isCompleted={item.completed}
+        creationDate={item.created_at}
         handlePress={() => handleCompleteTask({ item })}
       />
     );
   };
 
   return (
-    <List
-      keyExtractor={(item: ITaskState) => item.id}
-      data={data?.tasks}
-      renderItem={renderItem}
-      ItemSeparatorComponent={() => <LineSeparator />}
+  <List
+    keyExtractor={(item: ITaskState) => item.id.toString()}
+    data={data?.tasks}
+    renderItem={renderItem}
+    ItemSeparatorComponent={() => <LineSeparator />}
     />
-  );
+);
 };
