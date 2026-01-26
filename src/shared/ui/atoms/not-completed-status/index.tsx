@@ -1,15 +1,22 @@
 import { useEffect, useRef } from 'react';
 import { Animated, Easing } from 'react-native';
-import styled from 'styled-components/native';
-import { Container, EmptyCircle, IconContainer, StatusBlock } from './styled';
+import {
+  Container,
+  EmptyCircle,
+  IconContainer,
+  StatusBlock,
+  StatusTouchable,
+} from './styled';
 import { SuccessIcon } from '@icons';
 
 type NotCompletedStatusProps = {
+  isCompleted: boolean;
   isStatusPressed: boolean;
   handlePress: () => Promise<void>;
 };
 
 export const NotCompletedStatus = ({
+  isCompleted,
   isStatusPressed,
   handlePress,
 }: NotCompletedStatusProps) => {
@@ -21,19 +28,21 @@ export const NotCompletedStatus = ({
 
       Animated.timing(scaleAnim, {
         toValue: 1,
-        duration: 90,
+        duration: 100,
         easing: Easing.linear,
         useNativeDriver: true,
       }).start();
     } else {
-      Animated.timing(scaleAnim, {
-        toValue: 0,
-        duration: 50,
-        easing: Easing.out(Easing.cubic),
-        useNativeDriver: true,
-      }).start();
+      if (isCompleted) {
+        Animated.timing(scaleAnim, {
+          toValue: 0,
+          duration: 50,
+          easing: Easing.out(Easing.cubic),
+          useNativeDriver: true,
+        }).start();
+      }
     }
-  }, [isStatusPressed, scaleAnim]);
+  }, [isStatusPressed, scaleAnim, isCompleted]);
 
   return (
     <StatusTouchable
@@ -43,17 +52,17 @@ export const NotCompletedStatus = ({
     >
       <Container>
         <EmptyCircle />
-            {isStatusPressed && (
-                <IconContainer>
-                <SuccessIcon width={30} height={30}/>
-                </IconContainer>
-            )}
+        {isCompleted && (
+          <IconContainer>
+            <SuccessIcon width={30} height={30} />
+          </IconContainer>
+        )}
         <StatusBlock
           style={{
             transform: [
               {
                 scale: scaleAnim.interpolate({
-                  inputRange: [0, 1],
+                  inputRange: isCompleted ? [20, 40] : [0, 1],
                   outputRange: [0, 1],
                 }),
               },
@@ -64,5 +73,3 @@ export const NotCompletedStatus = ({
     </StatusTouchable>
   );
 };
-
-const StatusTouchable = styled.TouchableOpacity``;

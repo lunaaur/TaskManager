@@ -24,3 +24,13 @@ export interface ITaskApiResponse {
   count: number;
   tasks: ITaskState[];
 }
+export interface ICompleteTaskApiResponse {
+  success: boolean;
+  message: string;
+  task: ITaskState;
+}
+
+export interface ICompleteTaskApiBody {
+  id: number;
+  completed: boolean;
+}

@@ -1,8 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Config from 'react-native-config';
-import { ITaskApiResponse } from 'src/types/task';
-import { getTasks } from '../slices/tasks/tasks-slice';
+import { ICompleteTaskApiBody, ICompleteTaskApiResponse, ITaskApiResponse } from 'src/types/task';
+import { completeTask, getTasks } from '../slices/tasks/tasks-slice';
 
 export const tasksApi = createApi({
   reducerPath: 'tasksApi',
@@ -18,11 +18,11 @@ export const tasksApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Tasks'],
+  tagTypes: ['Task'],
   endpoints: builder => ({
     getTasks: builder.query<ITaskApiResponse, void>({
       query: () => 'api/tasks',
-      providesTags: ['Tasks'],
+      providesTags: ['Task'],
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
@@ -37,7 +37,23 @@ export const tasksApi = createApi({
         }
       },
     }),
+    completeTask: builder.mutation<ICompleteTaskApiResponse, ICompleteTaskApiBody>({
+       query: ({id, completed}) => ({
+        url: `api/tasks/${id}`,
+        method: 'PATCH',
+        body: { completed },
+       }),
+        invalidatesTags: ['Task'],
+      async onQueryStarted(args, { dispatch }) {
+        try {
+          dispatch(completeTask({id: args.id, completed: args.completed}))
+
+        } catch (error: any) {
+          console.log(error, 'error ccomplete task')
+        }
+      }
+    })
   }),
 });
 
-export const { useGetTasksQuery } = tasksApi;
+export const { useGetTasksQuery, useCompleteTaskMutation } = tasksApi;
