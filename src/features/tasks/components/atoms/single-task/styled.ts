@@ -10,3 +10,13 @@ display: flex;
 flex-direction: row;
 align-items: center;
 `
+
+export const TaskInfoBlock = styled.View`
+display: flex;
+`
+
+export const DateBlock = styled.View`
+display: flex;
+flex-direction: row;
+margin-top: 8px;
+`

@@ -4,6 +4,8 @@ import { ITaskState } from 'src/types/task';
 import { List } from './styled';
 import { LineSeparator } from '@atoms';
 
+import { FormatEnum, handleDateFormation } from 'src/shared/helpers/formatDate';
+
 export const TasksList = () => {
   const { data } = useGetTasksQuery();
 
@@ -18,21 +20,23 @@ export const TasksList = () => {
   };
 
   const renderItem = ({ item }: { item: ITaskState }) => {
+
     return (
       <SingleTask
         taskName={item.name}
         isCompleted={item.completed}
+        creationDate={handleDateFormation({date: item.created_at, dateFormat: FormatEnum.DATEMONTH})}
         handlePress={() => handleCompleteTask({ item })}
       />
     );
   };
 
   return (
-    <List
-      keyExtractor={(item: ITaskState) => item.id}
-      data={data?.tasks}
-      renderItem={renderItem}
-      ItemSeparatorComponent={() => <LineSeparator />}
+  <List
+    keyExtractor={(item: ITaskState) => item.id.toString()}
+    data={data?.tasks}
+    renderItem={renderItem}
+    ItemSeparatorComponent={() => <LineSeparator />}
     />
-  );
+);
 };
