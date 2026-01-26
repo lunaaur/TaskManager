@@ -5,6 +5,7 @@ import { clrBlue } from '@variables';
 type TextElemProps = {
   type: TextTypeEnum;
   size: TextSizeEnum;
+  color: string;
 };
 
 export const TextElem = styled.Text<TextElemProps>`
@@ -17,7 +18,7 @@ export const TextElem = styled.Text<TextElemProps>`
             case 'small': 
             return '14px';
             default:
-            return '14px';
+            return '16px';
         }
     }};
     font-weight: ${(props: TextElemProps) => {
@@ -36,6 +37,8 @@ export const TextElem = styled.Text<TextElemProps>`
         switch (props.type) {
             case 'link': 
             return clrBlue;
+            case 'coloured':
+                return props.color
             default:
             return 'black';
         }

@@ -3,7 +3,8 @@ import { SingleTask } from '../../atoms/single-task';
 import { ITaskState } from 'src/types/task';
 import { List } from './styled';
 import { LineSeparator } from '@atoms';
-import { View } from 'react-native';
+
+import { FormatEnum, handleDateFormation } from 'src/shared/helpers/formatDate';
 
 export const TasksList = () => {
   const { data } = useGetTasksQuery();
@@ -19,11 +20,12 @@ export const TasksList = () => {
   };
 
   const renderItem = ({ item }: { item: ITaskState }) => {
+
     return (
       <SingleTask
         taskName={item.name}
         isCompleted={item.completed}
-        creationDate={item.created_at}
+        creationDate={handleDateFormation({date: item.created_at, dateFormat: FormatEnum.DATEMONTH})}
         handlePress={() => handleCompleteTask({ item })}
       />
     );

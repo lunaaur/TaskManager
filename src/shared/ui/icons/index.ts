@@ -4,3 +4,4 @@ export { BackIcon } from './BackIcon';
 export { NotesIcon } from './NotesIcon';
 export { ProfileIcon } from './ProfileIcon';
 export { SuccessIcon } from './SuccessIcon';
+export { CalendarIcon } from './CalendarIcon';
